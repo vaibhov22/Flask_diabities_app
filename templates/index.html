@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Diabetes Prediction Assistant</h1>
+        <p>Enter your health metrics to get a prediction.</p>
+    </header>
+    <main>
+        <form id="prediction-form">
+            <h2>Patient Health Information</h2>
+            <div class="form-grid">
+                <!-- All 8 input features from the dataset -->
+                <div class="form-group">
+                    <label for="pregnancies">Pregnancies</label>
+                    <input type="number" id="pregnancies" name="Pregnancies" placeholder="e.g., 1" required>
+                </div>
+                <div class="form-group">
+                    <label for="glucose">Glucose</label>
+                    <input type="number" id="glucose" name="Glucose" placeholder="e.g., 85" required>
+                </div>
+                <div class="form-group">
+                    <label for="bloodpressure">Blood Pressure (mm Hg)</label>
+                    <input type="number" id="bloodpressure" name="BloodPressure" placeholder="e.g., 66" required>
+                </div>
+                <div class="form-group">
+                    <label for="skinthickness">Skin Thickness (mm)</label>
+                    <input type="number" id="skinthickness" name="SkinThickness" placeholder="e.g., 29" required>
+                </div>
+                <div class="form-group">
+                    <label for="insulin">Insulin (mu U/ml)</label>
+                    <input type="number" id="insulin" name="Insulin" placeholder="e.g., 94" required>
+                </div>
+                <div class="form-group">
+                    <label for="bmi">BMI</label>
+                    <input type="number" step="0.1" id="bmi" name="BMI" placeholder="e.g., 26.6" required>
+                </div>
+                <div class="form-group">
+                    <label for="dpf">Diabetes Pedigree Function</label>
+                    <input type="number" step="0.001" id="dpf" name="DiabetesPedigreeFunction" placeholder="e.g., 0.351" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age (years)</label>
+                    <input type="number" id="age" name="Age" placeholder="e.g., 31" required>
+                </div>
+                
+                <button type="submit" class="predict-button" id="predictBtn">Get Prediction</button>
+            </div>
+        </form>
+
+        <div id="result-container">
+            <!-- Prediction result will be displayed here -->
+        </div>
+    </main>
+</div>
+
+<!-- Link to the external JavaScript file -->
+<script src="{{ url_for('static', filename='hello.js') }}"></script>
+</body>
+</html>
+
